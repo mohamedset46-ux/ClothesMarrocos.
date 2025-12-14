@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="container">
+    <h2 class="text-center mb-4">المنتجات</h2>
+    <div class="row" id="products"></div>
+  </div>
+</section>
+
+<script>
+const products = JSON.parse(localStorage.getItem("products") || "[]");
+const box = document.getElementById("products");
+
+products.forEach(p=>{
+  box.innerHTML += `
+  <div class="col-md-4">
+    <div class="product-card">
+      <img src="${p.img}">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <strong>${p.price} درهم</strong><br>
+      <button class="btn btn-success mt-2">اشتر الآن</button>
+    </div>
+  </div>`;
+});
+</script>
